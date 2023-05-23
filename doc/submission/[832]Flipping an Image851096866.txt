@@ -1,0 +1,35 @@
+class Solution {
+    public int[][] flipAndInvertImage(int[][] image) {
+        flip(image);
+        invert(image);
+        return image;
+    }
+
+    public static void flip(int[][] image) {
+        for (int i = 0; i < image.length; i++) {
+            int si = 0; 
+            int ei = image[i].length - 1;
+            while (si < ei) {
+                int temp = image[i][si];
+                image[i][si] = image[i][ei];
+                image[i][ei] = temp;
+                si++;
+                ei--;
+            }
+        }
+    }
+
+    public static void invert(int[][] image) {
+        for (int i = 0; i < image.length; i++) {
+            for (int j = 0; j < image[i].length; j++) {
+                if (image[i][j] == 0) {
+                    image[i][j] = 1;
+                } else {
+                    image[i][j] = 0;
+                }
+            }
+        }
+    }
+}
+//runtime:3 ms
+//memory:45.1 MB
